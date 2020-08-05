@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>login</title>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+  .m{
+    background: transparent ;
+      padding: 25px 50px;
+      margin-top: 50px;
+    margin-right: 300px;
+    margin-left: 300px;
+  }
+        body{
+        background-image: url({% static 'background1.jpg' %});
+    }
+        div h4 a{
+            text-decoration: underline;
+            color: blue;
+        }
+        div h4 a:hover{
+            font-size:120%;
+            color: chartreuse;
+        }
+        button{
+            height: 50px;
+            width: 100px;
+            border-radius: 15px;
+            background-color: pink;
+            color: blue;
+            font-size:20px;
+        }
+        label{
+            font-size:20px;
+            color:yellow;
+        }
+        h2{
+            color: red;
+        }
+</style>
+
+</head>
+<body>
+<form action="login" method="post">
+    {% csrf_token %}
+<div class="m">
+<div>
+    {% block contain %}
+    {% endblock %}
+
+     {% for message in messages %}
+        <h2>{{ message }}</h2>
+     {% endfor %}
+</div>
+<div class="form-group">
+  <label for="pwd">Username:</label>
+  <input type="text" placeholder="" class="form-control" id="pwd" name="username">
+</div>
+<div class="form-group">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id="pwd" name="password">
+</div>
+<div>
+    <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+    <h4>Create a new account <a href="register">here.</a></h4>
+  <button>Login</button>
+</div>
+</div>
+</form>
+
+</body>
+</html>

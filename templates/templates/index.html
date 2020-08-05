@@ -1,0 +1,116 @@
+{% load static %}
+<html lang="en">
+<head>
+  <title>view point</title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<style>
+    section{
+        background-image: url({% static 'background1.jpg' %});
+        background-repeat: repeat-y;
+    }
+    #ab{
+        color: chartreuse;
+    }
+    .dot img{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+    .nav-link.active{
+        color: white;
+    }
+</style>
+<nav class="navbar navbar-default" style="background-color:indianred; position: sticky; top: 0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="#">viewpoint</a>
+    </div>
+<span class="dot">
+    <img src="{% static 'my1.jpg' %}" alt="my pic">
+</span>
+    <ul class="navbar-nav">
+        <li><a class="nav-link active" href="#">Home</a></li>
+        {% if user.is_authenticated %}
+            <li id="ab">Hello,{{ user.username }}</li>
+            <li><a href="logout">Logout</a></li>
+        {% else %}
+            <li><a href="login">Login</a></li>
+        {% endif %}
+        <li><a href="gallery">Gallery</a></li>
+        <li><a href="aboutus">About Us</a></li>
+    </ul>
+    <form class="form-inline" >
+        <label>
+            <input class="form-control mr-sm-2" type="text" placeholder="Courses">
+        </label>
+        <button class="btn btn-success" type="submit">🔍</button>
+
+    </form>
+  </div>
+</nav>
+
+<div  align="center" style="background-color: orange; ">
+  <h3>Welcome TO ViewPoint</h3>
+  <p>Hi!!<br>
+    I am Bikram Subedi.<br>
+    I am Computer Engineer.<br>
+    It is all about computer engineering course in nepal.
+  </p>
+</div>
+
+
+<style>
+    .dis{
+        border: 2px solid black;
+        float: left;
+        height: 90px;
+        width: 100%;
+        background-color: transparent;
+        text-align: center;
+    }
+    .a{
+        padding: 5px;
+        float: left;
+        width: 25%;
+    }
+    .b img{
+
+        float: left;
+        height: 300px;
+        width: 100%;
+    }
+
+</style>
+<section>
+<div style="height: 500px; width: 100%;">
+{% for a in first %}
+     <div class="a">
+    <div class="b"><img src="{{ a.image.url}}" alt="{{ a.name }}"></div>
+    <div class="dis">
+        <h4>Name:{{ a.name }}</h4>
+        <h6>{{ a.describe }}</h6>
+        <h4>rs: {{ a.price }}</h4>
+    </div>
+    </div>
+{% endfor %}
+</div>
+</section>
+
+<footer>
+<div class="ma">
+    <p class="p-3 bg-dark text-white text-center ">viewpoint/© 2020 Copyright: subedibikram33@gmail.com</p>
+</div>
+    </footer>
+{% block contain %}
+    {% endblock %}
+</body>
+</html>

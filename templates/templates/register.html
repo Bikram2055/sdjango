@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>register</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>register</title>
+    <style type="text/css">
+  .m{
+    background-color: green;
+      padding: 25px 50px;
+      margin-top: 50px;
+    margin-right: 300px;
+    margin-left: 300px;
+  }
+         body{
+        background-image: url({% static 'background1.jpg' %});
+    }
+</style>
+
+</head>
+<body>
+<form action="register" method="post">
+    {% csrf_token %}
+<div class="m">
+    <div>
+        {% for message in messages %}
+        <script>
+        window.onload = function() {
+            alert('{{ message }}');
+        }
+        </script>
+        {% endfor %}
+    </div>
+    <div class="form-group">
+  <label for="usr">First name:</label>
+  <input type="text" class="form-control" id="usr" name="first name" minlength="3" maxlength="10">
+</div>
+    <div class="form-group">
+  <label for="usr">Last name:</label>
+  <input type="text" class="form-control" id="usr" name="last name" minlength="3" maxlength="10">
+</div>
+<div class="form-group">
+  <label for="usr">Username:</label>
+  <input type="text" class="form-control" id="usr" name="username" minlength="5" maxlength="15">
+</div>
+<div class="form-group">
+  <label for="pwd">Email:</label>
+  <input type="Email" placeholder="eg @gmail.com" class="form-control" id="pwd" name="email">
+</div>
+<div class="form-group">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id="pwd" name="password" minlength="6" maxlength="16">
+</div>
+    <div class="form-group">
+  <label for="usr">Confirm Password:</label>
+  <input type="password" class="form-control" id="usr" name="confirm password">
+</div>
+<div>
+  <button>Register</button>
+</div>
+
+</div>
+</form>
+
+
+</body>
+</html>

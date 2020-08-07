@@ -1,0 +1,1 @@
+web: gunicorn view1port.wsgi --log-file --

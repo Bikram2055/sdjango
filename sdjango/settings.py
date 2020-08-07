@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 from django.template.context_processors import media
-
+import django_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -156,3 +156,4 @@ MEDIA_URL = "/media/"
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+django_heroku.settings(locals())

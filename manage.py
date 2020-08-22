@@ -4,7 +4,7 @@ import os
 import sys
 
 
-def main():
+def mai():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sdjango.settings')
     try:
         from django.core.management import execute_from_command_line
@@ -18,4 +18,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    mai()

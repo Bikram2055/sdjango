@@ -1,1 +1,1 @@
-web: gunicorn view1port.wsgi --log-file --
+web: gunicorn shiva-bik.wsgi --log-file --
